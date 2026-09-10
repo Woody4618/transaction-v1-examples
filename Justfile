@@ -64,7 +64,7 @@ lint: _py-install
     cd go && go vet ./...
 
 typecheck: _py-install
-    cd ts && pnpm exec tsc -p kit/tsconfig.json --noEmit && pnpm exec tsc -p kit-plugins/tsconfig.json --noEmit && pnpm exec tsc -p web3js-legacy/tsconfig.json --noEmit && pnpm exec tsc -p web3js-v3/tsconfig.json --noEmit
+    cd ts && pnpm exec tsc -p kit/tsconfig.json --noEmit && pnpm exec tsc -p kit-plugins/tsconfig.json --noEmit && pnpm exec tsc -p web3js-legacy/tsconfig.json --noEmit && pnpm exec tsc -p web3js-v3/tsconfig.json --noEmit && pnpm exec tsc -p wallet-table/tsconfig.json --noEmit
     cd python && .venv/bin/mypy
     cd go && go build ./...
 
@@ -158,6 +158,10 @@ w3v3-send-decode:
 # Send a whole Token-2022 confidential transfer in one v1 transaction with @solana/web3.js 3.x.
 w3v3-confidential-transfer:
     cd ts/web3js-v3 && pnpm exec tsx src/confidential-transfer.ts
+
+# Browser page listing installed wallets and whether each supports v1.
+wallet-table:
+    cd ts/wallet-table && pnpm dev
 
 py-send-decode: _py-install
     cd python && .venv/bin/python examples/send_decode.py

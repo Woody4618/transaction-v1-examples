@@ -3,7 +3,7 @@ rust/target/
 
 # Node
 node_modules/
-ts/dist/
+dist/
 *.tsbuildinfo
 
 # Python

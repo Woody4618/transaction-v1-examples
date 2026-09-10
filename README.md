@@ -56,10 +56,11 @@ solana -u l feature status txv1aq4pp281K9um3tnPgkfX8UqtFT6wcVW3hNezGLL
 | Read a v1 transaction with the `@solana/web3.js` 1.x beta | — | `just w3-read-transaction` | — | — |
 | Send and read a v1 transfer with `@solana/web3.js` 3.x | — | `just w3v3-send-decode` | — | — |
 | Send a confidential transfer with `@solana/web3.js` 3.x | — | `just w3v3-confidential-transfer` | — | — |
+| See which installed browser wallets support v1 | — | `just wallet-table` | — | — |
 | Index transactions over gRPC | `just grpc-tx-indexer` | `just ts-grpc-tx-indexer` | — | `just go-grpc-tx-indexer` |
 | Index blocks over gRPC | `just grpc-block-indexer` | `just ts-grpc-block-indexer` | — | `just go-grpc-block-indexer` |
 
-Source: [`rust/src/bin/`](rust/src/bin), [`ts/kit/src/`](ts/kit/src), [`ts/kit-plugins/src/`](ts/kit-plugins/src), [`ts/web3js-legacy/src/`](ts/web3js-legacy/src), [`ts/web3js-v3/src/`](ts/web3js-v3/src), [`python/examples/`](python/examples), and [`go/cmd/`](go/cmd).
+Source: [`rust/src/bin/`](rust/src/bin), [`ts/kit/src/`](ts/kit/src), [`ts/kit-plugins/src/`](ts/kit-plugins/src), [`ts/web3js-legacy/src/`](ts/web3js-legacy/src), [`ts/web3js-v3/src/`](ts/web3js-v3/src), [`ts/wallet-table/src/`](ts/wallet-table/src), [`python/examples/`](python/examples), and [`go/cmd/`](go/cmd).
 
 ## Do more with Larger Transactions
 

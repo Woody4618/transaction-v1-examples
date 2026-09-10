@@ -1,0 +1,130 @@
+:root {
+    --bg: oklch(0.9826 0.002 286.25);
+    --fg: oklch(0.2269 0.002 286.25);
+    --muted: oklch(0.4947 0.007 286.25);
+    --card: oklch(1 0 0);
+    --border: oklch(0.884 0.007 286.25);
+    --border-low: oklch(0.927 0.005 286.25);
+    --yes: oklch(0.6 0.15 150);
+    --no: oklch(0.577 0.245 27.325);
+    --update: oklch(0.55 0.15 250);
+    --radius: 0.625rem;
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+}
+
+main {
+    max-width: 44rem;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+h1 {
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+}
+
+p {
+    color: var(--muted);
+    margin: 0 0 1.5rem;
+}
+
+a {
+    color: inherit;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+th[scope='col']:first-child {
+    width: 34%;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--border-low);
+}
+
+thead th {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    background: var(--bg);
+}
+
+tbody tr:last-child > * {
+    border-bottom: none;
+}
+
+th[scope='row'] {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding-left: 1rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+th[scope='row'] img {
+    border-radius: 4px;
+}
+
+.yes {
+    color: var(--yes);
+    font-weight: 600;
+}
+
+.no {
+    color: var(--no);
+}
+
+.update {
+    color: var(--update);
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.update:hover {
+    text-decoration: underline;
+}
+
+.empty {
+    padding: 2rem;
+    text-align: center;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.legend {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.8125rem;
+    color: var(--muted);
+}

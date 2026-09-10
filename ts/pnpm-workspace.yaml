@@ -2,6 +2,7 @@ packages:
   - kit
   - kit-plugins
   - web3js-legacy
+  - wallet-table
   - web3js-v3
 
 onlyBuiltDependencies:
