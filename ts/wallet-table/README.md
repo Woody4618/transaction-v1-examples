@@ -17,3 +17,18 @@ holds a hand-maintained map from wallet name to its site and, once shipped,
 the release that added v1 support, so the page can point users at an update.
 
 More on the upgrade: <https://solana.com/upgrades/larger-transaction-sizes>.
+
+## Deploy
+
+The page is fully static: no env vars, no backend, no build-time network
+access. [`../vercel.json`](../vercel.json) holds the install, build, and output
+settings for Vercel.
+
+Set the project's **Root Directory** to `ts` — that setting lives only in the
+Vercel dashboard, and it has to be `ts` rather than `ts/wallet-table` because
+the pnpm workspace root (`pnpm-workspace.yaml`, `pnpm-lock.yaml`, and the
+`packageManager` field) is `ts/`. Vercel picks its package manager from the
+lockfile it finds at the root directory, so pointing it deeper falls back to
+npm and fails to resolve the workspace.
+
+Keep the project on Node 22.x; Vite 8 requires Node >=20.19 or >=22.12.
