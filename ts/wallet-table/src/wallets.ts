@@ -5,17 +5,44 @@ import { useSyncExternalStore } from 'react';
 
 const wallets = getWallets();
 
+type StandardEvents = { on(event: 'change', listener: () => void): () => void };
+
+let snapshot: readonly Wallet[] = wallets.get();
+
 function subscribe(onChange: () => void) {
-    const offRegister = wallets.on('register', onChange);
-    const offUnregister = wallets.on('unregister', onChange);
+    const offChanges = new Map<Wallet, () => void>();
+    const refresh = () => {
+        const current = wallets.get();
+        for (const [wallet, off] of offChanges) {
+            if (!current.includes(wallet)) {
+                off();
+                offChanges.delete(wallet);
+            }
+        }
+        for (const wallet of current) {
+            if (offChanges.has(wallet)) continue;
+            const events = wallet.features['standard:events'] as StandardEvents | undefined;
+            offChanges.set(wallet, events?.on('change', update) ?? (() => {}));
+        }
+    };
+    const update = () => {
+        refresh();
+        snapshot = [...wallets.get()];
+        onChange();
+    };
+    refresh();
+    snapshot = [...wallets.get()];
+    const offRegister = wallets.on('register', update);
+    const offUnregister = wallets.on('unregister', update);
     return () => {
         offRegister();
         offUnregister();
+        for (const off of offChanges.values()) off();
     };
 }
 
 export function useWallets(): readonly Wallet[] {
-    const getSnapshot = () => wallets.get();
+    const getSnapshot = () => snapshot;
     return useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
 }
 

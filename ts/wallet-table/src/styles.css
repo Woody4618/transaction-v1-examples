@@ -7,7 +7,6 @@
     --border-low: oklch(0.927 0.005 286.25);
     --yes: oklch(0.6 0.15 150);
     --no: oklch(0.577 0.245 27.325);
-    --update: oklch(0.55 0.15 250);
     --radius: 0.625rem;
     font-family: Inter, system-ui, sans-serif;
     line-height: 1.5;
@@ -96,18 +95,6 @@ th[scope='row'] img {
 
 .no {
     color: var(--no);
-}
-
-.update {
-    color: var(--update);
-    font-weight: 500;
-    font-size: 0.875rem;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-.update:hover {
-    text-decoration: underline;
 }
 
 .empty {
