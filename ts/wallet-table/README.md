@@ -12,9 +12,7 @@ just wallet-table   # vite dev server
 
 A wallet supports v1 when `supportedTransactionVersions` on its
 `solana:signAndSendTransaction` or `solana:signTransaction` feature contains
-`1`. For wallets that do not, [`src/known-wallets.ts`](src/known-wallets.ts)
-holds a hand-maintained map from wallet name to its site and, once shipped,
-the release that added v1 support, so the page can point users at an update.
+`1`.
 
 More on the upgrade: <https://solana.com/upgrades/larger-transaction-sizes>.
 

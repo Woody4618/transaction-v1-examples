@@ -12,7 +12,7 @@
         "oxlint-tsgolint": "^7.0.2001",
         "tsx": "^4.20.0",
         "typescript": "^5.9.0",
-        "vitest": "^3.2.0"
+        "vitest": "^4.1.11"
     },
     "packageManager": "pnpm@10.29.2"
 }
